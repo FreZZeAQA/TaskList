@@ -12,7 +12,12 @@ public class ListTask {
         do {
             System.out.print("Word:");
             word = scanner.nextLine().toLowerCase();
-            wordList.add(word);
+            if (word.equals("break")) {
+                wordList.remove(word);
+            } else {
+                wordList.add(word);
+            }
+
         } while (!word.equals("break"));
         System.out.println("Default list:" + wordList);
 
@@ -29,7 +34,7 @@ public class ListTask {
             Pattern patternLength = Pattern.compile("[a-zA-Z]{5}");
             Matcher matcherLength = patternLength.matcher(wordsWithLengthMoreThanFive);
             while (matcherLength.find()) {
-                System.out.print(wordsWithLengthMoreThanFive+", ");
+                System.out.print(wordsWithLengthMoreThanFive + ", ");
             }
         }
     }
